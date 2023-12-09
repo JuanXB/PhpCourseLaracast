@@ -10,12 +10,41 @@
 <body>
     <h1>Simpson Family</h1>
     <?php
-    $members = ['Homer', 'Marge', 'Bart', 'Lisa', 'Maggie']
+    $members = [
+        [
+            'name' => 'Homer Jay',
+            'lastname' => 'Simpson',
+            'age' => 39
+        ],
+        [
+            'name' => 'Marjorie',
+            'lastname' => 'Bouvier',
+            'age' => 34
+        ],
+        [
+            'name' => 'Bartholomew',
+            'lastname' =>'Simpson',
+            'age' => 10
+        ],
+        [
+            'name' => 'Lisa Merie',
+            'lastname' =>'Simpson',
+            'age' => 8
+        ],
+        [
+            'name' => 'Margaret',
+            'lastname' =>'Simpson',
+            'age' => 1
+        ]
+    ];
     ?>
 
     <ul>
         <?php foreach ($members as $member) : ?>
-            <li><?=$member?></li>
+            <li>Name: <?=$member['name']?></li>
+            <li>Lastname: <?=$member['lastname']?></li>
+            <li>Age: <?=$member['age']?></li>
+            <br>
         <?php endforeach; ?>
     </ul>
 </body>
