@@ -14,36 +14,48 @@
         [
             'name' => 'Homer Jay',
             'lastname' => 'Simpson',
-            'age' => 39
+            'wikiUrl' => 'https://es.wikipedia.org/wiki/Homer_Simpson'
         ],
         [
             'name' => 'Marjorie',
             'lastname' => 'Bouvier',
-            'age' => 34
+            'wikiUrl' => 'https://es.wikipedia.org/wiki/Marge_Simpson'
         ],
         [
             'name' => 'Bartholomew',
             'lastname' =>'Simpson',
-            'age' => 10
+            'wikiUrl' => 'https://es.wikipedia.org/wiki/Bart_Simpson'
         ],
         [
             'name' => 'Lisa Merie',
             'lastname' =>'Simpson',
-            'age' => 8
+            'wikiUrl' => 'https://es.wikipedia.org/wiki/Lisa_Simpson'
         ],
         [
             'name' => 'Margaret',
             'lastname' =>'Simpson',
-            'age' => 1
+            'wikiUrl' => 'https://es.wikipedia.org/wiki/Maggie_Simpson'
         ]
     ];
+
+    function filterByLastname(array $members, string $lastname) : array
+    {
+        $filteredMembers = [];
+
+        foreach ($members as $member) {
+            if($member['lastname'] === $lastname) {
+                $filteredMembers[] = $member;
+            }
+        }
+        return $filteredMembers;
+    }
     ?>
 
     <ul>
-        <?php foreach ($members as $member) : ?>
-            <li>Name: <?=$member['name']?></li>
-            <li>Lastname: <?=$member['lastname']?></li>
-            <li>Age: <?=$member['age']?></li>
+        <?php foreach (filterByLastname($members, 'Bouvier') as $member) : ?>
+            <a href="<?=$member['wikiUrl']?>">
+            <li><?=$member['name']?> <?=$member['lastname']?></li>
+            </a>
             <br>
         <?php endforeach; ?>
     </ul>
