@@ -8,7 +8,18 @@
 </head>
 
 <body>
-    <h1><?php echo "Hello World!"; ?></h1>
+    <h1>Simpson Family</h1>
+    <?php 
+        $members = ['Homer', 'Marge', 'Bart', 'Lisa', 'Maggie']
+    ?>
+
+    <ul>
+        <?php
+            foreach ($members as $member) {
+                echo "<li>$member</li>";
+            }
+        ?>
+    </ul>
 </body>
 
 </html>
