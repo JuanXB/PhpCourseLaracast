@@ -9,16 +9,14 @@
 
 <body>
     <h1>Simpson Family</h1>
-    <?php 
-        $members = ['Homer', 'Marge', 'Bart', 'Lisa', 'Maggie']
+    <?php
+    $members = ['Homer', 'Marge', 'Bart', 'Lisa', 'Maggie']
     ?>
 
     <ul>
-        <?php
-            foreach ($members as $member) {
-                echo "<li>$member</li>";
-            }
-        ?>
+        <?php foreach ($members as $member) : ?>
+            <li><?=$member?></li>
+        <?php endforeach; ?>
     </ul>
 </body>
 
