@@ -38,19 +38,19 @@
         ]
     ];
 
-    function filter(array $members, $fn) : array
-    {
-        $filteredMembers = [];
+    // function filter(array $members, $fn) : array
+    // {
+    //     $filteredMembers = [];
 
-        foreach ($members as $member) {
-            if($fn($member)) {
-                $filteredMembers[] = $member;
-            }
-        }
-        return $filteredMembers;
-    }
+    //     foreach ($members as $member) {
+    //         if($fn($member)) {
+    //             $filteredMembers[] = $member;
+    //         }
+    //     }
+    //     return $filteredMembers;
+    // }
 
-    $filteredMembers = filter($members, function ($member) {
+    $filteredMembers = array_filter($members, function ($member) {
         return $member['lastname'] != 'Bouvier';
     })
     ?>
