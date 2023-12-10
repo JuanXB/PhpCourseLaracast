@@ -38,12 +38,12 @@
         ]
     ];
 
-    function filterByLastname(array $members, string $lastname) : array
+    function filter(array $members, string $key, string $value) : array
     {
         $filteredMembers = [];
 
         foreach ($members as $member) {
-            if($member['lastname'] === $lastname) {
+            if($member[$key] === $value) {
                 $filteredMembers[] = $member;
             }
         }
@@ -52,7 +52,7 @@
     ?>
 
     <ul>
-        <?php foreach (filterByLastname($members, 'Bouvier') as $member) : ?>
+        <?php foreach (filter($members, 'lastname', 'Simpson') as $member) : ?>
             <a href="<?=$member['wikiUrl']?>">
             <li><?=$member['name']?> <?=$member['lastname']?></li>
             </a>
