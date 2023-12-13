@@ -1,4 +1,4 @@
 <?php
-
+$heading = 'About Us';
 // Rendere Html
-require 'about.view.php';
+require 'views/about.view.php';
