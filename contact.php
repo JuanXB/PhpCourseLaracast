@@ -1,4 +1,6 @@
 <?php
+require 'helpersFunctions.php';
+
 $heading = 'Contact Us';
 
 // Rendere Html
