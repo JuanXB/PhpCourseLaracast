@@ -1,4 +1,4 @@
 <?php
 $heading = 'Home';
 // Rendere Html
-require 'views/index.view.php';
+require 'views/home.view.php';
