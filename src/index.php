@@ -7,11 +7,11 @@ require 'helpersFunctions.php';
 
 // Connect with msql database
 
-$dns = "msql:host=localhost;port=3306;dbname=mydatabase;user=user;password=password;charset=utf8mb64";
+$dns = "mysql:host=db;port=3306;dbname=mydatabase;user=root;charset=utf8";
 
 $pdo = new PDO($dns);
 
-$stm = $pdo->prepare("select * from post");
+$stm = $pdo->prepare("select * from posts");
 
 $stm->execute();
 
