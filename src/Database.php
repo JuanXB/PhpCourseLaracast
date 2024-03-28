@@ -4,13 +4,15 @@ class Database
 {
     private $connection;
 
-    public function __construct()
+    public function __construct(array $config, string $username = 'user', string $password = 'password')
     {
         // Connect with msql database
 
-        $dns = "mysql:host=db;port=3306;dbname=mydatabase;user=root;charset=utf8";
+        $dns = "mysql:". http_build_query($config, '', ';');
 
-        $this->connection = new PDO($dns);
+        $this->connection = new PDO($dns, $username, $password, [
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]);
     }
 
     public function query(string $query) :\PDOStatement|false
