@@ -15,10 +15,10 @@ class Database
         ]);
     }
 
-    public function query(string $query) :\PDOStatement|false
+    public function query(string $query, array $params = []) :\PDOStatement|false
     {
         $stm = $this->connection->prepare($query);
-        $stm->execute();
+        $stm->execute($params);
         return $stm;
     }
 }
