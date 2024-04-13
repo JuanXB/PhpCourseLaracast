@@ -12,3 +12,7 @@ function urlIs(string $url) : bool
 {
     return $_SERVER['REQUEST_URI'] === $url; 
 }
+
+function authorized(bool $conditional, int $status = Response::FORBIDDEN) {
+    if(! $conditional) abort($status);
+}

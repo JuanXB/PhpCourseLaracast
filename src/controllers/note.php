@@ -6,18 +6,13 @@ $db = new Database($config['database']);
 
 
 $query = "select * from notes where id = :id";
-$note = $db->query($query, ['id' => $_GET['id']])->fetch();
+$note = $db->query($query, ['id' => $_GET['id']])->findOrFail();
 
-if(! $note) {
-    abort();
-}
+
 
 $currentUser = $note['user_id'];
 
-
-if($currentUser !== 1) {
-    abort(Response::FORBIDDEN);
-}
+authorized($note['user_id'] === 1);
 
 // Rendere Html
 require 'views/note.view.php';

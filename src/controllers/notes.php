@@ -6,7 +6,7 @@ $db = new Database($config['database']);
 
 
 $query = "select * from notes";
-$notes = $db->query($query)->fetchAll();
+$notes = $db->query($query)->getAll();
 
 // dumpAndDie($notes);
 
