@@ -19,11 +19,11 @@ function routeToController(string $uri, array $routes): void
     }
 }
 
-function abort(int $code = 404): void
+function abort(int $code = Response::NOT_FOUND): void
 {
     http_response_code($code);
 
-    require 'views/errors/404.php';
+    require 'views/errors/'.$code.'.php';
    
     die();
 }
