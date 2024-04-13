@@ -8,10 +8,9 @@ $config = require 'config.php';
 
 $db = new Database($config['database']);
 
-$id = $_GET['id'];
 
-$query = "select * from posts where id = :id";
-$post = $db->query($query, ['id' => $id])->fetch();
+$query = "select * from notes";
+$post = $db->query($query)->fetchAll();
 
 dumpAndDie($post);
 // foreach ($posts as $post) {
