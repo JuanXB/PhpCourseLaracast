@@ -5,12 +5,12 @@
 <?php require ('views/partials/banner.php'); ?>
 
 <main>
-    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        <div class="md:grid md-grid-cols-3 md:gap-6">
-            <div class="mt-5 md:col-span-2 md:mt-0">
-                <form action="#" method="POST">
-                    <div class="space-y-6">
-                        <div class="border-b border-gray-900/10 pb-12">
+    <div class="mx-auto max-w-4xl py-6 sm:px-6 lg:px-8">
+        <div>
+            <div class="md:grid md-grid-cols-3 md:gap-6">
+                <div class="mt-5 md:col-span-2 md:mt-0">
+                    <form action="#" method="POST">
+                        <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
                             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                                 <div class="col-span-full">
                                     <label for="body"
@@ -22,13 +22,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="mt-6 flex items-center justify-end gap-x-6">
-                        <button type="submit"
-                            class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
-                    </div>
-                </form>
+                        <div class="mt-6 flex items-center justify-end gap-x-6">
+                            <button type="submit"
+                                class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
