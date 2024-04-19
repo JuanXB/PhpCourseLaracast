@@ -1,4 +1,6 @@
 <?php
+require 'Validator.php';
+
 $heading = 'New Note';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -6,12 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $body = trim($_POST['body']);
     $errors = [];
 
-    if (strlen($body) === 0) {
-        $errors['body'] = 'The body is required';
-    }
 
-    if (strlen($body) > 1000) {
-        $errors['body'] = 'The body cant not be more than 1,000 characters.';
+    if (! Validator::string($body, 1, 1000)) {
+        $errors['body'] = 'The body cant not be more than 1,000 characters and is required';
     }
 
     if (empty($errors)) {
