@@ -27,4 +27,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 // Rendere Html
-require 'views/note-create.view.php';
+require 'views/notes/create.view.php';
