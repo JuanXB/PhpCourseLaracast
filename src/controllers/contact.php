@@ -1,6 +1,4 @@
 <?php
-
-$heading = 'Contact Us';
-
 // Rendere Html
-require 'views/contact.view.php';
+view('contact.view.php', ['heading' => 'Contact Us']);
+

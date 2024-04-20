@@ -1,12 +1,10 @@
 <?php
-require 'Validator.php';
 
-$heading = 'New Note';
+$errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $body = trim($_POST['body']);
-    $errors = [];
 
 
     if (! Validator::string($body, 1, 1000)) {
@@ -14,17 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $config = require 'config.php';
+        $config = require base_path('config.php');
         $db = new Database($config['database']);
 
 
         $query = 'INSERT INTO notes(body, user_id) VALUES (:body,:user_id)';
         $db->query($query, ['body' => $body, 'user_id' => 1]);
-        $body ='';
     }
 
 }
 
 
 // Rendere Html
-require 'views/notes/create.view.php';
+view('/notes/create.view.php', ['heading' => 'New Note', 'errors' => $errors]);
+

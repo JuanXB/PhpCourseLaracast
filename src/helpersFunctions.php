@@ -16,3 +16,15 @@ function urlIs(string $url) : bool
 function authorized(bool $conditional, int $status = Response::FORBIDDEN) {
     if(! $conditional) abort($status);
 }
+
+function base_path(string $path):string
+{
+    return BASE_PATH.$path;
+}
+
+function view(string $path, array $attributes = []) {
+
+    extract($attributes);
+
+    require base_path('views/'.$path);
+}

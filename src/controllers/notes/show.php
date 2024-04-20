@@ -1,7 +1,6 @@
 <?php
-$heading = 'My Note';
 
-$config = require 'config.php';
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
 
@@ -15,4 +14,5 @@ $currentUser = $note['user_id'];
 authorized($note['user_id'] === 1);
 
 // Rendere Html
-require 'views/notes/show.view.php';
+view('/notes/show.view.php', ['heading' => 'My Note', 'note' => $note]);
+
