@@ -1,4 +1,5 @@
 <?php
+use core\Response;
 
 function dumpAndDie($value): void
 {
