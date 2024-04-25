@@ -5,7 +5,7 @@ $config = require base_path('config.php');
 $db = new Database($config['database']);
 
 
-$query = "select * from notes";
+$query = 'SELECT * FROM notes';
 $notes = $db->query($query)->getAll();
 
 // dumpAndDie($notes);
