@@ -29,3 +29,12 @@ function view(string $path, array $attributes = []) {
 
     require base_path('views/'.$path);
 }
+
+function abort(int $code = Response::NOT_FOUND): void
+{
+    http_response_code($code);
+
+    require base_path('views/errors/'.$code.'.php');
+
+    die();
+}
