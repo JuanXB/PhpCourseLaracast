@@ -8,7 +8,7 @@
     <div class="mx-auto max-w-4xl py-6 sm:px-6 lg:px-8">
         <div>
             <div class="mt-5 md:mt-0">
-                <form action="#" method="POST">
+                <form action="/notes" method="POST">
                     <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
                         <div>
                             <div class="col-span-full">
