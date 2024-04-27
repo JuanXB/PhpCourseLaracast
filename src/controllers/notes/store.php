@@ -2,6 +2,7 @@
 
 use core\Database;
 use core\Validator;
+use core\App;
 
 $errors = [];
 
@@ -16,9 +17,7 @@ if (!empty($errors)) {
     return view('/notes/create.view.php', ['heading' => 'New Note', 'errors' => $errors]);
 }
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
-
+$db = App::resolver(Database::class);
 
 $query = 'INSERT INTO notes(body, user_id) VALUES (:body,:user_id)';
 $db->query($query, ['body' => $body, 'user_id' => 1]);
