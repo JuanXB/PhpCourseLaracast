@@ -1,7 +1,7 @@
 <?php
 use core\Response;
 
-function dumpAndDie($value): void
+function dd($value): void
 {
     echo '<pre>';
     var_dump($value);

@@ -23,4 +23,4 @@ $query = 'INSERT INTO notes(body, user_id) VALUES (:body,:user_id)';
 $db->query($query, ['body' => $body, 'user_id' => 1]);
 
 header('location: /notes');
-exit();
+die();
