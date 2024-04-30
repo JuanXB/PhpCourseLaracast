@@ -8,7 +8,7 @@ $db = App::resolver(Database::class);
 $query = 'SELECT * FROM notes WHERE id = :id';
 $note = $db->query($query, ['id' => $_GET['id']])->findOrFail();
 
-$currentUser = 1;
+$currentUser = 3;
 
 authorized($note['user_id'] === $currentUser);
 

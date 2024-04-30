@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db:3306
--- Tiempo de generación: 13-04-2024 a las 17:38:21
+-- Tiempo de generación: 30-04-2024 a las 23:47:05
 -- Versión del servidor: 8.3.0
 -- Versión de PHP: 8.2.8
 
@@ -33,18 +33,6 @@ CREATE TABLE `notes` (
   `user_id` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Volcado de datos para la tabla `notes`
---
-
-INSERT INTO `notes` (`id`, `body`, `user_id`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua', 1),
-(2, 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', 1),
-(3, 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 1),
-(4, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam', 2),
-(5, 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque', 2),
-(6, 'Qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -53,7 +41,7 @@ INSERT INTO `notes` (`id`, `body`, `user_id`) VALUES
 
 CREATE TABLE `users` (
   `id` bigint NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -61,9 +49,9 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`) VALUES
-(1, 'Juan Cruz', 'juanc@test.com'),
-(2, 'Pedro Sanchez', 'pedro_s@test.com');
+INSERT INTO `users` (`id`, `password`, `email`) VALUES
+(3, '$2y$10$tF1wOstdn6ppOCQtnD.ks.k0Un3eicz7lSl.YiEHcB2cBXSExRZGm', 'test1@example.com'),
+(4, '$2y$10$k8p8ZxNPDw7KoAzTSXCcu.Ee8vBOsu/Ty6WCGyufIEXeGW16Y8Khe', 'test2@example.com');
 
 --
 -- Índices para tablas volcadas
@@ -91,13 +79,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas

@@ -1,7 +1,7 @@
 <?php
 
 const BASE_PATH = __DIR__ .'/../';
-
+session_start();
 
 require BASE_PATH. 'core/helpersFunctions.php';
 

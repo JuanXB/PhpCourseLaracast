@@ -14,6 +14,10 @@ $router->path('/notes/update', 'controllers/notes/update.php');
 $router->get('/note' ,'controllers/notes/show.php');
 $router->get('/note/create', 'controllers/notes/create.php');
 
+$router->get('/register', 'controllers/registration/create.php');
+$router->post('/register', 'controllers/registration/store.php');
+
+
 
 
 
