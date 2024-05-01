@@ -1,47 +1,69 @@
 <?php
 namespace core;
 
+use core\Middleware\Middleware;
+
 class Router
 {
 
     protected array $routes = [];
 
-    protected function add(string $uri, string $controller, string $method): void
+    protected function add(string $uri, string $controller, string $method): Router
     {
-        $this->routes[] = compact('uri', 'controller', 'method');
-       
+        $this->routes[] = [
+            'uri' => $uri,
+            'controller' => $controller,
+            'method' => $method,
+            'middleware' => null
+        ]; 
+
+        return $this;
+
     }
 
-    public function get(string $uri, string $controller): void
+    public function get(string $uri, string $controller): Router
     {
-        $this->add($uri, $controller, 'GET');
+        return $this->add($uri, $controller, 'GET');
     }
 
-    public function post(string $uri, string $controller): void
+    public function post(string $uri, string $controller): Router
     {
-        $this->add($uri, $controller, 'POST');
+        return $this->add($uri, $controller, 'POST');
     }
 
-    public function delete(string $uri, string $controller): void
+    public function delete(string $uri, string $controller): Router
     {
-        $this->add($uri, $controller, 'DELETE');
+        return $this->add($uri, $controller, 'DELETE');
     }
 
-    public function path(string $uri, string $controller): void
+    public function path(string $uri, string $controller): Router
     {
-        $this->add($uri, $controller, 'PATH');
+        return $this->add($uri, $controller, 'PATH');
     }
 
-    public function put(string $uri, string $controller): void
+    public function put(string $uri, string $controller): Router
     {
-        $this->add($uri, $controller, 'PUT');
+        return $this->add($uri, $controller, 'PUT');
     }
 
-    public function route(string $uri, string $method) 
+    public function only(string $key) : Router
+    {
+        $key = strtolower($key);
+
+        $this->routes[array_key_last($this->routes)]['middleware'] = $key;
+        
+        return $this;
+    }
+
+    public function route(string $uri, string $method)
     {
         foreach ($this->routes as $route) {
-            if($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
-               return require base_path($route['controller']);
+            if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
+                
+                Middleware::resolve($route['middleware']);
+                
+                
+                return require base_path($route['controller']);
             }
         }
 
