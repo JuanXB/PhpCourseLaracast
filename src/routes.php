@@ -17,7 +17,9 @@ $router->get('/note/create', 'controllers/notes/create.php')->only('auth');
 $router->get('/register', 'controllers/registration/create.php')->only('guest');
 $router->post('/register', 'controllers/registration/store.php')->only('guest');
 
-
+$router->get('/session', 'controllers/session/create.php')->only('guest');
+$router->post('/session/login', 'controllers/session/store.php')->only('guest');
+$router->delete('/session/logout' ,'controllers/session/destroy.php')->only('auth');
 
 
 
