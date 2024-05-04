@@ -1,2 +1,3 @@
 # Ignorar la carpeta sessions
 /sessions
+/logs

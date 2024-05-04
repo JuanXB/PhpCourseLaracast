@@ -29,7 +29,7 @@ if ($user && password_verify($password, $user['password'])) {
         'email' => $email
     ]);
 
-    header('location : /');
+    header('location: /');
     exit();
 }
 
