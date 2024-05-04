@@ -9,6 +9,7 @@ services:
       - "80:80"
     volumes:
       - ./src:/var/www/html
+      - ./sessions:/var/www/html/sessions # Volumen para sesiones PHP
   
   db: 
     image: mysql:latest
