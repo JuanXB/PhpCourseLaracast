@@ -1,22 +1,15 @@
 <?php
 use core\App;
 use core\Database;
-use core\Validator;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-$errors = [];
 
-if (!Validator::email($email)) {
-    $errors['email'] = 'Is not a valid email.';
-}
 
-if (!Validator::string($password)) {
-    $errors['password'] = 'Is not a valid password.';
-}
+$form = new LoginForm();
 
-if (!empty($errors)) {
-    return view('/registration/create.view.php', ['errors' => $errors]);
+if ($form->validateFails($email, $password)) {
+    return view('/registration/create.view.php', ['errors' => $form->errors()]);
 }
 
 $db = App::resolver(Database::class);
