@@ -29,8 +29,7 @@ if ($user && password_verify($password, $user['password'])) {
         'email' => $email
     ]);
 
-    header('location: /');
-    exit();
+   redirect();
 }
 
 return view(

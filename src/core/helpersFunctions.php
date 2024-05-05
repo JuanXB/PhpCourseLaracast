@@ -69,3 +69,9 @@ function logout(): void
     );
 
 }
+
+function redirect(string $route = '/'): void
+{
+    header('location: ' . $route);
+    die();
+}

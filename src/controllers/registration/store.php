@@ -25,8 +25,7 @@ $query = 'SELECT email FROM users WHERE email = :email';
 $user = $db->query($query, ['email' => $email])->find();
 
 if ($user) {
-    header('location: /');
-    exit();
+    redirect();
 }
 
 $hashPassword = password_hash($password, PASSWORD_BCRYPT);
@@ -38,5 +37,4 @@ login([
     'email' => $email
 ]);
 
-header('location: /notes');
-die();
+redirect('/notes');

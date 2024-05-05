@@ -30,5 +30,4 @@ if (!empty($errors)) {
 $query = 'UPDATE notes SET body= :body WHERE id=:id';
 $db->query($query, ['body' => $body, 'id' => $id]);
 
-header('location: /notes');
-die();
+redirect('/notes');
