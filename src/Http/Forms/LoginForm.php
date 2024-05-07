@@ -1,5 +1,5 @@
 <?php
-use core\Validator;
+use Core\Validator;
 
 class LoginForm
 {
@@ -22,5 +22,10 @@ class LoginForm
     public function errors(): array
     {
         return $this->errors;
+    }
+
+    public function addError(string $field, string $message): void
+    {
+        $this->errors[$field] = $message;
     }
 }

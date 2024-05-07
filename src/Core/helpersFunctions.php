@@ -1,5 +1,5 @@
 <?php
-use core\Response;
+use Core\Response;
 
 function dd($value): void
 {
@@ -42,33 +42,6 @@ function abort(int $code = Response::NOT_FOUND): void
     die();
 }
 
-
-function login(array $user): void
-{
-    $_SESSION['user'] = [
-        'email' => $user['email']
-    ];
-    session_regenerate_id(true);
-}
-
-function logout(): void
-{
-    $_SESSION = [];
-
-    session_destroy();
-
-    $cookieParams = session_get_cookie_params();
-    setcookie(
-        'PHPSESSID',
-        '',
-        time() - 3600,
-        $cookieParams['path'],
-        $cookieParams['domain'],
-        $cookieParams['secure'],
-        $cookieParams['httponly']
-    );
-
-}
 
 function redirect(string $route = '/'): void
 {

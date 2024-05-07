@@ -1,7 +1,7 @@
 <?php
-use core\App;
-use core\Container;
-use core\Database;
+use Core\App;
+use Core\Container;
+use Core\Database;
 
 $container = new Container();
 

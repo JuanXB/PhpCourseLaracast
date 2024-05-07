@@ -1,6 +1,5 @@
 <?php
-use core\App;
-use core\Database;
+use Core\App;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -8,26 +7,15 @@ $password = $_POST['password'];
 
 $form = new LoginForm();
 
-if ($form->validateFails($email, $password)) {
-    return view('/registration/create.view.php', ['errors' => $form->errors()]);
+if (!$form->validateFails($email, $password)) {
+
+    $auth = App::resolver(Authenticator::class);
+
+    if ($auth->attempt($email, $password)) {
+        redirect();
+    }
+
+    $form->addError('email', 'Not matching account found for that email address and password.');
 }
 
-$db = App::resolver(Database::class);
-
-$query = 'SELECT * FROM users WHERE email = :email';
-$user = $db->query($query, ['email' => $email])->find();
-
-if ($user && password_verify($password, $user['password'])) {
-    login([
-        'email' => $email
-    ]);
-
-   redirect();
-}
-
-return view(
-    '/session/create.view.php',
-    [
-        'errors' => ['email' => 'Not matching account found for that email address and password.']
-    ]
-);
+return view('/session/create.view.php', ['errors' => $form->errors()]);

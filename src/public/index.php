@@ -3,7 +3,7 @@
 const BASE_PATH = __DIR__ .'/../';
 session_start();
 
-require BASE_PATH. 'core/helpersFunctions.php';
+require BASE_PATH. 'Core/helpersFunctions.php';
 
 spl_autoload_register(function($class) {
 
@@ -13,7 +13,7 @@ spl_autoload_register(function($class) {
 });
 
 
-$router = new \core\Router();
+$router = new \Core\Router();
 require base_path('routes.php');
 
 require base_path('bootstrap.php');

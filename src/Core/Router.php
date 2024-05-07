@@ -1,7 +1,7 @@
 <?php
-namespace core;
+namespace Core;
 
-use core\Middleware\Middleware;
+use Core\Middleware\Middleware;
 
 class Router
 {

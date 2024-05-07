@@ -1,5 +1,5 @@
 <?php
-namespace core\Middleware;
+namespace Core\Middleware;
 class Guest {
     public function handle() 
     {

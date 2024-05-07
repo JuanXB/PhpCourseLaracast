@@ -1,5 +1,7 @@
 <?php 
+use Core\App;
 
-logout();
+
+App::resolver(Authenticator::class)->logout();
 
 redirect();

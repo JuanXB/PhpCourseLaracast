@@ -1,6 +1,6 @@
 <?php
 
-namespace core\Middleware;
+namespace Core\Middleware;
 
 class Auth {
     public function handle() 

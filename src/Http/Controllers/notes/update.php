@@ -1,8 +1,8 @@
 <?php
 
-use core\Database;
-use core\Validator;
-use core\App;
+use Core\Database;
+use Core\Validator;
+use Core\App;
 
 $body = trim($_POST['body']);
 $id =  $_POST['id'];
