@@ -1,5 +1,6 @@
 <?php
 use Core\App;
+use Core\Session;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -18,4 +19,6 @@ if (!$form->validateFails($email, $password)) {
     $form->addError('email', 'Not matching account found for that email address and password.');
 }
 
-return view('/session/create.view.php', ['errors' => $form->errors()]);
+Session::flash('errors', $form->errors());
+
+return redirect('/session');
