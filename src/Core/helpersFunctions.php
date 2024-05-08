@@ -48,3 +48,8 @@ function redirect(string $route = '/'): void
     header('location: ' . $route);
     die();
 }
+
+function old(string $key, $default = ''): mixed
+{
+    return Core\Session::get('old')[$key] ?? $default;
+}
